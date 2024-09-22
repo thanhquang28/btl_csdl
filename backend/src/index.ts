@@ -3,6 +3,7 @@ import mongoose from "mongoose"
 import { MONGO_URI, PORT } from "./config/config"
 import { Quest1 } from "./services/q1"
 import Seeder, { DropCollections } from "./seeder"
+import { Quest2 } from "./services/q2"
 
 const app = express()
 const port = PORT
@@ -19,6 +20,12 @@ mongoose
 app.get("/quest1", async (req: Request, res: Response) => {
   const result = await Quest1()
   res.send(result)
+})
+
+app.get("/quest2", async (req: Request, res: Response) => {
+  const dateInput = req.query.date as string
+  const result = await Quest2(dateInput)
+  return res.send(result)
 })
 
 app.post("/seed", async (req: Request, res: Response) => {
