@@ -1,15 +1,15 @@
 services:
-  # backend:
-  #   build: ./backend
-  #   ports:
-  #     - "3000:3000"
-  #   volumes:
-  #     - ./backend:/usr/src/app
-  #     - /usr/src/app/node_modules
-  #   depends_on:
-  #     - mongo
-  #   environment:
-  #     MONGO_URI: mongodb://mongo:27017/thanhlq
+  backend:
+    build: ./backend
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./backend:/usr/src/app
+      - /usr/src/app/node_modules
+    depends_on:
+      - mongo
+    environment:
+      MONGO_URI: mongodb://mongo:27017/thanhlq
 
   # frontend:
   #   build: ./frontend

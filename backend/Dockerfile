@@ -10,9 +10,6 @@ COPY package*.json ./
 # Install dependencies
 RUN npm install
 
-# Install nodemon globally
-RUN npm install -g nodemon ts-node typescript
-
 # Copy the rest of the application code
 COPY . .
 
