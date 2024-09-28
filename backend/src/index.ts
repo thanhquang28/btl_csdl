@@ -5,7 +5,7 @@ import { Quest1 } from "./services/q1"
 import Seeder, { DropCollections } from "./seeder"
 import { Quest2 } from "./services/q2"
 import { Quest3 } from "./services/q3"
-
+var cors = require("cors")
 const app = express()
 const port = PORT
 
@@ -22,6 +22,7 @@ mongoose
     console.log("Failed to connect to MongoDB", error)
   })
 
+app.use(cors())
 app.get("/quest1", async (req: Request, res: Response) => {
   const result = await Quest1()
   res.send(result)
