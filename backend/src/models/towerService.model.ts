@@ -7,7 +7,6 @@ const TowerServiceSchema: Schema = new Schema(
     name: { type: String, required: true },
     type: { type: String, required: true },
     price: { type: Number, required: true },
-    maxRevenue: { type: Number },
     essential: { type: Boolean, required: true, default: false },
   },
   {

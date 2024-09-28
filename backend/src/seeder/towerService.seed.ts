@@ -9,7 +9,6 @@ export const TowerServiceSeed = [
     name: "Security",
     type: HOUSE_HOLD,
     price: randomNumber(7),
-    maxRevenue: randomNumber(8),
     essential: true,
   },
   {
@@ -17,7 +16,6 @@ export const TowerServiceSeed = [
     name: "Cleaning",
     type: HOUSE_HOLD,
     price: randomNumber(7),
-    maxRevenue: randomNumber(8),
     essential: true,
   },
   {
@@ -25,7 +23,6 @@ export const TowerServiceSeed = [
     name: "Repair",
     type: HOUSE_HOLD,
     price: randomNumber(7),
-    maxRevenue: randomNumber(8),
     essential: false,
   },
   {
@@ -33,7 +30,6 @@ export const TowerServiceSeed = [
     name: "Gardening",
     type: HOUSE_HOLD,
     price: randomNumber(7),
-    maxRevenue: randomNumber(8),
     essential: false,
   },
   {
@@ -41,7 +37,6 @@ export const TowerServiceSeed = [
     name: "Advertising",
     type: COMMERCIAL,
     price: randomNumber(7),
-    maxRevenue: randomNumber(8),
     essential: false,
   },
 ]

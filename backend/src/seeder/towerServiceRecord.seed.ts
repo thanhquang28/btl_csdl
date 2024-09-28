@@ -14,18 +14,46 @@ export const getTowerServiceRecordSeed = async () => {
       const services = company.towerAttributes.services
       for (const service of services) {
         const serviceId = service._id as ObjectId
-        const randomEmployees = await TowerEmployee.aggregate([
-          { $match: { "towerServiceRank.service": serviceId } },
-          { $sample: { size: 3 } },
+        const randomManager = await TowerEmployee.aggregate([
+          {
+            $match: {
+              "towerServiceRank.service": serviceId,
+              "towerServiceRank.position": "Manager",
+            },
+          },
+          { $sample: { size: 1 } },
+        ])
+        const randomAssistant = await TowerEmployee.aggregate([
+          {
+            $match: {
+              "towerServiceRank.service": serviceId,
+              "towerServiceRank.position": "Assistant",
+            },
+          },
+          { $sample: { size: 1 } },
+        ])
+        const randomStaff = await TowerEmployee.aggregate([
+          {
+            $match: {
+              "towerServiceRank.service": serviceId,
+              "towerServiceRank.position": "Staff",
+            },
+          },
+          { $sample: { size: 1 } },
         ])
 
         seeds.push({
           startDate: dateTime.startDate,
           endDate: dateTime.endDate,
           income: roundToTwo(service.price * company.towerAttributes.priceRate),
+          targetIncome: roundToTwo(service.price * 1.75),
           service: serviceId,
           company: company._id,
-          employees: randomEmployees,
+          employees: [
+            randomManager[0]._id,
+            randomAssistant[0]._id,
+            randomStaff[0]._id,
+          ],
         })
       }
     }
