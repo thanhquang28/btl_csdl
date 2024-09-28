@@ -1,5 +1,8 @@
+name: thanhlq
+
 services:
   backend:
+    container_name: backend
     build: ./backend
     ports:
       - "8080:8080"
@@ -12,12 +15,16 @@ services:
       MONGO_URI: mongodb://mongo:27017/thanhlq
       PORT: 8080
 
-  # frontend:
-  #   build: ./frontend
-  #   ports:
-  #     - "5000:5000"
-  #   depends_on:
-  #     - backend
+  frontend:
+    container_name: frontend
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    restart: always
+    depends_on:
+      - backend
+    ports:
+      - 80:3000
 
   mongo:
     image: mongo:latest
