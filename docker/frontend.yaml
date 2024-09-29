@@ -1,0 +1,11 @@
+name: thanhlq
+
+services:
+  frontend:
+    container_name: frontend
+    build:
+      context: ../frontend
+      dockerfile: Dockerfile
+    restart: "no"
+    ports:
+      - 80:3000

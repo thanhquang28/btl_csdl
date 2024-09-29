@@ -7,6 +7,9 @@ This is a MERN (MongoDB, Express, React, Node.js) stack project.
 - Docker
 - Docker Compose
 
+- Node:20 (for development)
+- Mongodb (for development)
+
 ## Getting Started
 
 To start the project using Docker Compose, follow these steps:
@@ -21,12 +24,13 @@ To start the project using Docker Compose, follow these steps:
 2. Build and start the containers:
 
    ```sh
-   docker-compose up --build
+   cd docker
+   docker compose -f backend.yaml -f frontend.yaml up -d --build
    ```
 
 3. Open your browser and navigate to `http://localhost` to see the application running.
 
-To start the project manually, follow these steps:
+To start the project manually or want to develope more feature, follow these steps:
 
 1. Clone the repository:
 
@@ -50,7 +54,7 @@ To start the project manually, follow these steps:
    ```sh
    cd frontend
    npm install
-   npm start
+   npm run dev
    ```
 
 5. Open your browser and navigate to `http://localhost:3000` to see the application running.
@@ -67,11 +71,6 @@ To start the project manually, follow these steps:
 - To stop the containers:
 
   ```sh
-  docker-compose down
-  ```
-
-- To rebuild the containers:
-
-  ```sh
-  docker-compose up --build
+  cd docker
+  docker compose -f backend.yaml -f frontend.yaml down
   ```
