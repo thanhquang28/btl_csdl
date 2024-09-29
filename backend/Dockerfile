@@ -2,7 +2,7 @@
 FROM node:20
 
 # Set the working directory
-WORKDIR /usr/src/app
+WORKDIR /app
 
 # Copy package.json and package-lock.json
 COPY package*.json ./
@@ -13,8 +13,10 @@ RUN npm install
 # Copy the rest of the application code
 COPY . .
 
+RUN npm run build
+
 # Expose the port the app runs on
-EXPOSE 3000
+EXPOSE 8080
 
 # Command to run the application with nodemon
-CMD ["npm", "start"]
+CMD ["npm", "run", "serve"]
