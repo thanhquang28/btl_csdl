@@ -25,8 +25,10 @@ To start the project using Docker Compose, follow these steps:
 
    ```sh
    cd docker
-   docker compose -f backend.yaml -f frontend.yaml up -d --build
    ```
+
+   Windows: `docker compose -f backend.yaml up -d; docker compose -f frontend.yaml up -d`
+   Linux/MacOS: `docker compose -f backend.yaml up -d && docker compose -f frontend.yaml up -d`
 
 3. Open your browser and navigate to `http://localhost` to see the application running.
 
@@ -64,7 +66,7 @@ To start the project manually or want to develope more feature, follow these ste
 - `frontend/` - React frontend
 - `backend/` - Express backend
 - `database/` - Store MongoDB data
-- `docker-compose.yml` - Docker Compose configuration
+- `docker/` - Docker configuration
 
 ## Useful Commands
 
